@@ -14,7 +14,7 @@
 
 ### APP End Points
 
-1. Generate Token - GET `api/v1/auth/login` {"email": "faisal.siddiq87+user02@gmail.com", "password" : "123456"}
+1. Generate Token - POST `api/v1/auth/login` {"email": "faisal.siddiq87+user02@gmail.com", "password" : "123456"}
 2. Get all Orders - GET `api/v1/order`
 3. Create Order   - POST `api/v1/order/create` {"products" : ["5", "6"],"amount" : "440.20"}
 4. Check Order Status - GET `api/v1/check-status/1`
