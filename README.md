@@ -51,7 +51,7 @@
    * declined ⇒ will move order to the canceled state
    * confirmed ⇒ will move order to the confirmed state
 6. Logic added behind payment confirmed or declined is if the input amount from create order EP is equal to Products price payment will be confirmed else will be declined
-7. After X amount of seconds confirmed orders will be automatically moved to the delivered state status via MYSQL Events(The MYSQL Event is already added in database when you run db migrations while project setup).
+7. After X amount of seconds confirmed orders will be automatically moved to the delivered state status after X seconds via MYSQL Events(The MYSQL Event is already added in database when you run db migrations while project setup).
 
 
 ## Other Notes:
