@@ -2,7 +2,6 @@
 
 namespace App\Management\Services;
 
-use App\Models\User;
 use App\Management\Validations\AuthValidation;
 use App\Management\Repositories\AuthRepository;
 use App\Management\Contracts\Service\Contract;
@@ -27,7 +26,6 @@ class AuthService implements Contract
     /**
      * Authenticate a user and return the token
      * 
-     * @param  \App\User   $user 
      * @return mixed
      */
     public function authenticate($request) 

@@ -1,7 +1,7 @@
 ## Installation Instructions
 
-1. Assuming composer is installed on your server, php(>=7.1.3) is recognised on your server via cmd. 
-2. After downloading the git repository naviagte to directory samtest.
+1. Assuming composer is installed on your server, php(>=7.1.3) is recognised on your server environment. 
+2. After downloading the git repository navigate to root directory.
 3. copy `.env.example` and rename it to `.env` and keep on same root as `composer.json`.
 4. change `DB_DATABASE=sammedia, DB_USERNAME=root, DB_PASSWORD=123456` values as per your database server credentials.
 5. Run Command `php -r "require 'vendor/autoload.php'; echo str_random(32).PHP_EOL;"` via cmd to generate your APP_KEY and replace in your .env file.
@@ -14,7 +14,7 @@
 
 ### APP End Points
 
-1. Generate Token - GET `api/v1/auth/login` {"email": "faisal.siddiq87+user02@gmail.com", "password" : "123456"}
+1. Generate Token - POST `api/v1/auth/login` {"email": "faisal.siddiq87+user02@gmail.com", "password" : "123456"}
 2. Get all Orders - GET `api/v1/order`
 3. Create Order   - POST `api/v1/order/create` {"products" : ["5", "6"],"amount" : "440.20"}
 4. Check Order Status - GET `api/v1/check-status/1`
@@ -56,4 +56,4 @@
 
 ## Other Notes:
 
-1. In My views all the points as per task requirement are done, still if you think any thing i missed let me know i will add that and push in to this repo.
+1. In My views all the points as per task requirement are done, still if you think any thing i missed let me know i will add that and push.
