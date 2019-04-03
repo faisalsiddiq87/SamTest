@@ -3,8 +3,9 @@
 namespace App\Management\Repositories;
 
 use App\Models\User;
+use App\Management\Contracts\Repository\Contract;
 
-class AuthRepository 
+class AuthRepository implements Contract
 {
     public function findUserByEmail($email)
     {

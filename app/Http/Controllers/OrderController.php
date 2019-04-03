@@ -32,12 +32,12 @@ class OrderController extends Controller
         return $this->response($this->service->createOrder($this->request, $this->user));
     }
 
-    public function cancelOrder($id, Request $request)
+    public function cancelOrder($id)
     {
         return $this->response($this->service->cancelOrder($id));
     }
    
-    public function checkOrderStatus($id, Request $request)
+    public function checkOrderStatus($id)
     {
         return $this->response($this->service->checkOrderStatus($id));
     }

@@ -15,7 +15,7 @@ class RequestHelper
 
             $tokenRequest->headers->set('Authorization', $token);
 
-            $response = app()->dispatch($tokenRequest)->getContent();
+            $response = app()->handle($tokenRequest)->getContent();
 
             $response  = json_decode($response, true);
         } catch (\Exception $e) {

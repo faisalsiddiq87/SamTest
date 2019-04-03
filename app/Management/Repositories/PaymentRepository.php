@@ -4,8 +4,9 @@ namespace App\Management\Repositories;
 
 use App\Models\Payment;
 use App\Models\OrderProduct;
+use App\Management\Contracts\Repository\Contract;
 
-class PaymentRepository 
+class PaymentRepository implements Contract
 {
     const PAYMENT_CONFIRMED_STATUS = 1;
 

@@ -4,8 +4,9 @@ namespace App\Management\Repositories;
 
 use App\Models\Order;
 use App\Models\OrderProduct;
+use App\Management\Contracts\Repository\Contract;
 
-class OrderRepository 
+class OrderRepository implements Contract
 {
     const ORDER_CREATED_STATUS = 1;
 
@@ -73,10 +74,6 @@ class OrderRepository
     {
         $order = Order::findOrFail($id);
 
-        $order->status = self::ORDER_CANCELLED_STATUS;
-
-        $order->save();
-
-        return $order;
+        return $this->updateOrderStatus($order, self::ORDER_CANCELLED_STATUS);
     }
 }

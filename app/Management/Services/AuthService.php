@@ -3,15 +3,16 @@
 namespace App\Management\Services;
 
 use App\Models\User;
-use App\Validations\AuthValidation;
+use App\Management\Validations\AuthValidation;
 use App\Management\Repositories\AuthRepository;
-use Firebase\JWT\JWT;
+use App\Management\Contracts\Service\Contract;
 use Illuminate\Http\Request;
-use Firebase\JWT\ExpiredException;
 use Illuminate\Support\Facades\Hash;
 
-class AuthService 
+class AuthService implements Contract
 {
+    use GenerateTokeService;
+
     private $repository;
 
     private $validator;
@@ -23,26 +24,8 @@ class AuthService
         $this->validator = new AuthValidation;
     }
 
-   /**
-     * Create a new token.
-     * 
-     * @param  \App\User   $user
-     * @return string
-     */
-    protected function jwt(User $user) 
-    {
-        $payload = [
-            'iss' => "lumen-jwt", // Issuer of the token
-            'sub' => $user->id, // Subject of the token
-            'iat' => time(), // Time when JWT was issued. 
-            'exp' => time() + env('TOKEN_EXPIRY') // Expiration time
-        ];
-        
-        return JWT::encode($payload, env('JWT_SECRET'));
-    }
-
     /**
-     * Authenticate a user and return the token if the provided credentials are correct.
+     * Authenticate a user and return the token
      * 
      * @param  \App\User   $user 
      * @return mixed
@@ -57,7 +40,7 @@ class AuthService
             if (!$user) {
                 $response = ['errors' => 'Email does not exist.'];   
             } else if (Hash::check($request['password'], $user->password)) {
-                $response = ['token' => $this->jwt($user)];
+                $response = ['token' => $this->jwtToken($user)];
             } else {   
                 $response = ['errors' => 'Passowrd is wrong for provided email.'];   
             }

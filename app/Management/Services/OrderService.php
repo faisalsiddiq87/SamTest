@@ -3,10 +3,11 @@
 namespace App\Management\Services;
 
 use App\Helpers\RequestHelper;
-use App\Validations\OrderValidation;
+use App\Management\Validations\OrderValidation;
 use App\Management\Repositories\OrderRepository;
+use App\Management\Contracts\Service\Contract;
 
-class OrderService 
+class OrderService implements Contract
 {
     private $repository;
 
@@ -24,7 +25,7 @@ class OrderService
         return $this->repository->getAllOrders();
     }
 
-    public function cancelOrder($id, $request)
+    public function cancelOrder($id)
     {
         return $this->repository->cancelOrder($id);
     }
@@ -41,7 +42,7 @@ class OrderService
             $order = $this->repository->createOrder($data);
 
             if (!empty($order->id)) {
-                $payment = RequestHelper::run($request, 'payment', 'POST', ['order_id' => $order->id, 'amount' => $data['amount']]);
+                $payment = RequestHelper::run($request, 'payment', 'POST', ['order_id' => $order->id, 'amount' => (float) $data['amount']]);
                 
                 if ($payment['status']) {
                     $order = $this->updateOrderStatus($order, OrderRepository::ORDER_CONFIRMED_STATUS);

@@ -2,10 +2,11 @@
 
 namespace App\Management\Services;
 
-use App\Validations\PaymentValidation;
+use App\Management\Validations\PaymentValidation;
 use App\Management\Repositories\PaymentRepository;
+use App\Management\Contracts\Service\Contract;
 
-class PaymentService 
+class PaymentService implements Contract
 {
     private $repository;
 

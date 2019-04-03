@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Validations;
+namespace App\Management\Validations;
 
+use App\Management\Contracts\Validation\Contract;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 
-class AuthValidation
+class AuthValidation implements Contract
 {
     public function validate($inputs) 
     {
