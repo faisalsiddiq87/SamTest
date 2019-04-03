@@ -51,9 +51,7 @@ class OrderTest extends TestCase
      * api/v1/order/cancel-order/{id} [PUT]
     */
     public function testShouldCancelOrder()
-    {
-        $this->refreshApplication();
-        
+    {   
         $this->put('api/v1/order/cancel-order/1', [], $this->jwtToken(User::find(1), false));
     
         $this->seeStatusCode(200);
