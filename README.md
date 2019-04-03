@@ -25,7 +25,7 @@
 
 ### Testing End Points
 
-1. After you have seeded data and created some orders and few payments are processed test your End points.
+1. After data is seeded and some orders are created test your End points.
 2. Run the Command `vendor/bin/phpunit` on your project root.
 3. All the test cases should return OK with assertions.
 
@@ -50,10 +50,10 @@
 5. Orders App updates order based on the response from the Payments App
    * declined ⇒ will move order to the canceled state
    * confirmed ⇒ will move order to the confirmed state
-6. Logic i have added behind payment confirmed or declined is if the input amount from create order EP is equal to Products price payment will be confirmed else will be declined
+6. Logic added behind payment confirmed or declined is if the input amount from create order EP is equal to Products price payment will be confirmed else will be declined
 7. After X amount of seconds confirmed orders will be automatically moved to the delivered state status via MYSQL Events(The MYSQL Event is already added in database when you run db migrations while project setup).
 
 
 ## Other Notes:
 
-1. In My views all the points as per task requirement are done, still if you think any thing i missed let me know i will add that and push in to this repo.
+1. In My views all the points as per task requirement are done, still if you think any thing is missed let me know will add that.
