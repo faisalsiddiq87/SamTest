@@ -42,6 +42,8 @@ sites:
 1. After downloading the git repository naviagte to directory samtest.
 2. copy `.env.example` and rename it to `.env` and keep on same root as `composer.json`.
 3. Run Command `php -r "require 'vendor/autoload.php'; echo str_random(32).PHP_EOL;"` via cmd to generate your APP_KEY and replace in your .env file.
+4. Navigate to `cd ~/Homestead` and type `vagrant ssh`
+5. Now type `cd ~/code/sam/samtest`
 4. Run command `composer update` it will download all the composer dev dependencies and repositories.
 5. Run command `php artisan migrate` for creating all tables in your database.
 6. Run command `php artisan db:seed` for seeding the dummy data related to this test.
@@ -62,8 +64,10 @@ sites:
 ### Testing End Points
 
 1. After data is seeded and some orders are created test your End points.
-2. Run the Command `vendor/bin/phpunit` on your project root.
-3. All the test cases should return OK with assertions.
+2. Navigate to cd ~/Homestead and type vagrant ssh
+3. Now type cd ~/code/sam/samtest
+4. Run the Command `vendor/bin/phpunit` on your project root.
+5. All the test cases should return OK with assertions.
 
 ### About Development
 
