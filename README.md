@@ -64,8 +64,10 @@ sites:
 ### Testing End Points
 
 1. After data is seeded and some orders are created test your End points.
-2. Run the Command `vendor/bin/phpunit` on your project root.
-3. All the test cases should return OK with assertions.
+2. Navigate to cd ~/Homestead and type vagrant ssh
+3. Now type cd ~/code/sam/samtest
+4. Run the Command `vendor/bin/phpunit` on your project root.
+5. All the test cases should return OK with assertions.
 
 ### About Development
 
