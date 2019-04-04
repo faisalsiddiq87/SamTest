@@ -1,16 +1,52 @@
-## Installation Instructions
+## Vagrant Installation Instructions
 
-1. Assuming composer is installed on your server, php(>=7.1.3) is recognised on your server via cmd. 
-2. After downloading the git repository naviagte to directory samtest.
-3. copy `.env.example` and rename it to `.env` and keep on same root as `composer.json`.
-4. change `DB_DATABASE=sammedia, DB_USERNAME=root, DB_PASSWORD=123456` values as per your database server credentials.
-5. Run Command `php -r "require 'vendor/autoload.php'; echo str_random(32).PHP_EOL;"` via cmd to generate your APP_KEY and replace in your .env file.
-6. Run command `composer update` it will download all the composer dev dependencies and repositories.
-7. Run command `php artisan migrate` for creating all tables in your database.
-8. Run command `php artisan db:seed` for seeding the dummy data related to this test.
-9. Run command `php -S localhost:8000 -t public` to load your local server.
-10. Hit the URL `http://localhost:8000/` in your browser/POSTMAN.
-11. If all installation steps done correctly you will see `Lumen (5.8.4) (Laravel Components 5.8.*)` in browser/POSTMAN.
+1. To Install Vagrant on your machine follow these steps
+2. Virtualbox download link: https://www.virtualbox.org/wiki/Downloads
+3. vagrant download link: https://www.vagrantup.com/downloads.html
+4. After downloading these, first install virtualbox. And then install vagrant. 
+5. You may need to restart your PC after the installation complete.
+6. Git bash Download link: https://git-scm.com/download/win
+7. Now open git bash in administrator mode and run the following command: `vagrant box add laravel/homestead` and select `virtualbox` option
+8. it should add the laravel/homestead box to your Vagrant installation. It will take a few minutes to download the box, depending on your Internet connection speed.
+9. Now, after completing down load, from Git bash type cd ~ on you git bash and hit enter. Now run the following command:
+`git clone https://github.com/laravel/homestead.git Homestead`
+10. It will clone the Homestead repository into a Homestead folder within your home (C:\Users\USER_NAME) directory.
+11. Now run the following two commands one by one: `cd Homestead` and `bash init.sh`
+12. This will create the Homestead.yaml configuration file. 
+13. The Homestead.yaml file will be placed in the C:\Users\USER_NAME\Homestead directory.
+14. Now we need ssh key. To check it is already exist in your computer or not go to C:\Users\USER_NAME\ directory and try to find out a folder named .ssh. If it exists, go into the folder and try to find out two files named id_rsa and id_rsa.pub. If the folder .ssh doesn’t exist or the folder exists but the two files named id_rsa and id_rsa.pub doesn’t exist then run the following command:
+`ssh-keygen -t rsa -C “your_email@example.com”`
+15. then the command prompt will ask you two things. you don’t need to type anything, just press enter what ever the command prompt ask you. After finishing this command a new .ssh folder (if already not exist) will be created with the two files named id_rsa and id_rsa.pub into it.
+16. Now we are going to edit the Homestead.yaml file which is generated already in  C:\Users\USER_NAME\Homestead directory
+17. First of all change ssh info in Homestead.yaml and they should look like this after change
+`authorize: c:/Users/USER_NAME/.ssh/id_rsa.pub`
+`keys:`
+ `— c:/Users/USER_NAME/.ssh/id_rsa`
+18. Don’t forget to use the lowercase of you drive name(c instead of C) and forward slash(/) instead of back slash(\). 
+19. Now modify folders like
+`folders:`
+ `— map: e:/Your_project_Dir`
+` to: /home/vagrant/Code`
+20. See now? my PC’s e:/Homestead_Projects folder and vagrant’s /home/vagrant/Code folder are pointing to the same folder.
+21. Now modify sites like
+sites:
+` — map: homestead.app`
+ `to: /home/vagrant/Code/Laravel/public`
+22. Now windows will not allow the homestead.app link to be hit from browser. 
+23. For that goto C:\Windows\System32\drivers\etc\ folder and edit the hosts file like
+24. 192.168.10.10 homestead.app
+25. Now navigate to cd ~/Homestead and hit `vagrant up` to start vagrant virtual box
+
+## Vagrant Installation Instructions
+
+1. After downloading the git repository naviagte to directory samtest.
+2. copy `.env.example` and rename it to `.env` and keep on same root as `composer.json`.
+3. Run Command `php -r "require 'vendor/autoload.php'; echo str_random(32).PHP_EOL;"` via cmd to generate your APP_KEY and replace in your .env file.
+4. Run command `composer update` it will download all the composer dev dependencies and repositories.
+5. Run command `php artisan migrate` for creating all tables in your database.
+6. Run command `php artisan db:seed` for seeding the dummy data related to this test.
+7. Hit the URL `http://homestead.app` in your browser/POSTMAN.
+9. If all installation steps done correctly you will see `Lumen (5.8.4) (Laravel Components 5.8.*)` in browser/POSTMAN.
 
 ### APP End Points
 
