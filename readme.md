@@ -37,7 +37,7 @@ sites:
 24. 192.168.10.10 homestead.app
 25. Now navigate to cd ~/Homestead and hit `vagrant up` to start vagrant virtual box
 
-## Vagrant Installation Instructions
+## Project Setup Instructions
 
 1. After downloading the git repository naviagte to directory samtest.
 2. copy `.env.example` and rename it to `.env` and keep on same root as `composer.json`.
