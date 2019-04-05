@@ -15,7 +15,6 @@ $router->get('/', function() use($router) {
     return $router->app->version();
 });
 
-
 $router->group(['prefix'=>'api/v1', 'middleware' => ['throttle:60,1']], function() use($router) {
     $router->post('auth/login', ['uses' => 'AuthController@authenticate']);
 
